@@ -62,19 +62,6 @@ aws-attendance-management-system/
 └── README.md
 ```
 
-## Screenshots
-
-### Attendance Dashboard
-
-![AttendEase dashboard](screenshots/dashboard.png)
-
-### Saved Attendance Records
-
-![Saved attendance records](screenshots/attendance-records.png)
-
-### DynamoDB Records
-
-![DynamoDB records](screenshots/dynamodb-records.png)
 
 ## How It Works
 
