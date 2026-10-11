@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AttendEase | Attendance Management</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="#">
+            <span class="brand-icon">A</span>
+            <span>AttendEase</span>
+        </a>
+        <span class="cloud-label">☁ AWS Cloud Project</span>
+    </header>
+
+    <main class="container">
+        <section class="welcome">
+            <p class="eyebrow">STUDENT MANAGEMENT</p>
+            <h1>Attendance Dashboard</h1>
+            <p class="subtitle">Record and manage student attendance in one place.</p>
+        </section>
+
+        <section class="stats">
+            <article class="stat-card">
+                <span class="stat-label">Today's Date</span>
+                <strong id="todayDate">Loading...</strong>
+                <span class="stat-note">Local date</span>
+            </article>
+            <article class="stat-card">
+                <span class="stat-label">Backend</span>
+                <strong class="backend-status">AWS Lambda</strong>
+                <span class="stat-note">Serverless API</span>
+            </article>
+            <article class="stat-card">
+                <span class="stat-label">Database</span>
+                <strong class="backend-status">DynamoDB</strong>
+                <span class="stat-note">Cloud storage</span>
+            </article>
+        </section>
+
+        <section class="content-grid">
+            <article class="panel">
+                <div class="panel-heading">
+                    <div>
+                        <p class="eyebrow">NEW ENTRY</p>
+                        <h2>Mark Attendance</h2>
+                    </div>
+                    <span class="heading-icon">＋</span>
+                </div>
+
+                <form id="attendanceForm">
+                    <label for="studentId">Student ID</label>
+                    <input
+                        id="studentId"
+                        name="studentId"
+                        type="text"
+                        placeholder="e.g. STU003"
+                        maxlength="50"
+                        required
+                    >
+
+                    <label for="name">Student Name</label>
+                    <input
+                        id="name"
+                        name="name"
+                        type="text"
+                        placeholder="Enter student's name"
+                        maxlength="100"
+                        required
+                    >
+
+                    <label for="date">Attendance Date</label>
+                    <input id="date" name="date" type="date" required>
+
+                    <label for="status">Attendance Status</label>
+                    <select id="status" name="status" required>
+                        <option value="Present">Present</option>
+                        <option value="Absent">Absent</option>
+                    </select>
+
+                    <button id="submitButton" type="submit">
+                        Submit Attendance <span>→</span>
+                    </button>
+
+                    <p id="message" class="message" role="status" aria-live="polite"></p>
+                </form>
+            </article>
+
+            <article class="panel info-panel">
+                <p class="eyebrow">PROJECT OVERVIEW</p>
+                <h2>Built on AWS</h2>
+                <p class="info-description">
+                    This demo sends attendance details to a serverless API
+                    and stores each record in a cloud database.
+                </p>
+
+                <div class="architecture-step">
+                    <span class="step-number">01</span>
+                    <div>
+                        <strong>Frontend</strong>
+                        <p>HTML, CSS and JavaScript</p>
+                    </div>
+                </div>
+
+                <div class="architecture-step">
+                    <span class="step-number">02</span>
+                    <div>
+                        <strong>API & Processing</strong>
+                        <p>AWS Lambda Function URL</p>
+                    </div>
+                </div>
+
+                <div class="architecture-step">
+                    <span class="step-number">03</span>
+                    <div>
+                        <strong>Data Storage</strong>
+                        <p>Amazon DynamoDB</p>
+                    </div>
+                </div>
+
+                <div class="notice">
+                    <strong>Demo project</strong>
+                    <p>Use sample student information only. This prototype is not an authenticated production system.</p>
+                </div>
+            </article>
+        </section>
+        
+        </section>
+    </section>
+
+    <section class="panel records-panel">
+        <div class="records-heading">
+            <div>
+                <p class="eyebrow">ATTENDANCE HISTORY</p>
+                <h2>Saved Records</h2>
+                <p class="records-subtitle">
+                    Attendance entries retrieved from Amazon DynamoDB.
+                </p>
+            </div>
+            <button id="refreshButton" class="refresh-button" type="button">
+                ↻ Refresh Records
+            </button>
+        </div>
+
+        <p id="recordsMessage" class="records-message" role="status"
+           aria-live="polite">Loading attendance records...</p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Student Name</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="recordsBody">
+                    <tr>
+                        <td colspan="4">Loading records...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer>
+        <span>AttendEase</span>
+        <span>Learning project · Powered by AWS</span>
+    </footer>
+</main>
+</body>
+</html>
